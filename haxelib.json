@@ -1,6 +1,6 @@
 {
   "name": "raymp",
-  "url" : "https://github.com/saumya/OpenFLGame",
+  "url" : "https://github.com/saumya/raymp",
   "license": "MIT",
   "tags": ["cross", "raymp"],
   "description": "A hackable component libray for OpenFL",

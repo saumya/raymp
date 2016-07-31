@@ -1,0 +1,15 @@
+{
+  "name": "raymp",
+  "url" : "https://github.com/saumya/OpenFLGame",
+  "license": "MIT",
+  "tags": ["cross", "raymp"],
+  "description": "A hackable component libray for OpenFL",
+  "version": "1.0.0",
+  "classPath": "src/",
+  "releasenote": "Initial release, everything is working correctly.",
+  "contributors": ["saumya"],
+  "dependencies": {
+    "openfl": "",
+    "actuate": ""
+  }
+}

@@ -1,6 +1,6 @@
-raymp (or RayComp)
+raymp
 ===================
-Minimal and hackable component libray for [OpenFL][2] and [NME][3].
+RayComp or raymp is a minimal and hackable component libray for [OpenFL][2] and [NME][3].
 
 ### Components 
 

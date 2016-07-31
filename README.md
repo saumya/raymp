@@ -1,6 +1,9 @@
 raymp
 ===================
-RayComp or raymp is a minimal and hackable component libray for [OpenFL][2] and [NME][3].
+RayComp or raymp is a minimal and hackable component libray for [OpenFL][2] and [NME][3].  
+
+[Demo is located in its own repository here][4].
+
 
 ### Components 
 
@@ -32,3 +35,4 @@ RayComp or raymp is a minimal and hackable component libray for [OpenFL][2] and 
 [1]: https://www.fontsquirrel.com/fonts/archistico
 [2]: https://github.com/openfl/openfl
 [3]: https://github.com/nmehost/nme
+[4]: https://github.com/saumya/OpenFLGame

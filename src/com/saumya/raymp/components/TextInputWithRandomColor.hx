@@ -1,5 +1,5 @@
 
-package com.saumya.components;
+package com.saumya.raymp.components;
 
 import openfl.display.Sprite;
 

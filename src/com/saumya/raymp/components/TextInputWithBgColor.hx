@@ -1,5 +1,5 @@
 
-package com.saumya.components;
+package com.saumya.raymp.components;
 
 import openfl.display.Sprite;
 
@@ -17,7 +17,7 @@ import openfl.text.TextFieldAutoSize;
 import openfl.Assets;
 import openfl.Lib;
 
-import com.saumya.components.TextInputWithRandomColor;
+import com.saumya.raymp.components.TextInputWithRandomColor;
 
 
 class TextInputWithBgColor extends TextInputWithRandomColor {

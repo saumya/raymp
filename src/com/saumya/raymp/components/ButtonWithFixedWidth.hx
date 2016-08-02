@@ -1,8 +1,8 @@
 
-package com.saumya.components;
+package com.saumya.raymp.components;
 
 import openfl.display.Graphics;
-import com.saumya.components.ButtonWithRandomColor;
+import com.saumya.raymp.components.ButtonWithRandomColor;
 
 class ButtonWithFixedWidth extends ButtonWithRandomColor {
 

@@ -1,5 +1,5 @@
 
-package com.saumya.components;
+package com.saumya.raymp.components;
 
 import openfl.display.Sprite;
 
@@ -16,15 +16,12 @@ import openfl.text.TextFieldAutoSize;
 import openfl.Assets;
 import openfl.Lib;
 
-
-class ButtonWithRandomColor extends Sprite {
+class ButtonSample extends Sprite {
 
 	private var maxColorValue:UInt;
 	private var buttonLabel:String;
 	private var fontHeight:UInt;
 	private var horizontalMargin:UInt;
-
-	private var textField:TextField;
 
 	public function new(name:String="Saumya",h:Int=20) {
 		super();
@@ -32,20 +29,24 @@ class ButtonWithRandomColor extends Sprite {
 		this.buttonLabel = name;
 		this.fontHeight = h;
 		this.horizontalMargin = Math.round(this.fontHeight/10) ;
-
-		this.textField = new TextField();
+		
 		construct();
-	} //new
+	}//new
 	private function construct():Void{
 		
-		//var font = Assets.getFont ("fonts/Archistico_Simple.ttf");
 		var font = Assets.getFont ("fonts/OpenSans-Regular.ttf");
+		//var font = Assets.getFont ("fonts/Archistico_Simple.ttf");
+		
+		//var font = Assets.getFont ("fonts/Quicksand-Light.otf");
 
 		var defaultFormat = new TextFormat (font.fontName, this.fontHeight, 0x000000);
+		
+		//var defaultFormat = new TextFormat();
+		//defaultFormat.color = 0x000000;
 		defaultFormat.align = TextFormatAlign.LEFT;
+		
 		// text
-		//var t:TextField = new TextField();
-		var t:TextField = this.textField;
+		var t:TextField = new TextField();
 		t.text = this.buttonLabel;
 		t.autoSize = TextFieldAutoSize.LEFT;
 		t.x = 0+this.horizontalMargin;

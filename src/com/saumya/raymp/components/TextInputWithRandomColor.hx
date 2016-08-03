@@ -102,8 +102,8 @@ class TextInputWithRandomColor extends Sprite {
 
 	private function onAddedToStage(e:Event){
 		trace("TextInputWithRandomColor:onAddedToStage:");
-		trace(this.textField.length);
+		//trace(this.textField.length); //TODO: FixThis. Throws error for NME !
 
-		this.textField.width = this.textField.length;
+		//this.textField.width = this.textField.length;
 	}//onAddedToStage
 }

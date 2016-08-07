@@ -18,6 +18,8 @@ RayComp or raymp is a minimal and hackable component libray for [OpenFL][2] and 
  - Check Box ( SelectButton )
  - Check Box with Label (SelectButtonWithLabel)
 
+ - Slider
+
 ### Containers
 
  - ScollView (wip, bugfix)

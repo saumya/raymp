@@ -122,10 +122,20 @@ class Slider extends Sprite {
 	private function stage_onMouseMove(e:MouseEvent):Void{
 		trace("stage_onMouseMove");
 		this.btnDraggable.x = e.localX;
-		if(btnDraggable.x<=btnLineIndicator.x){
-			btnDraggable.x = btnLineIndicator.x;
-		}else if(btnDraggable.x>=(btnLineIndicator.x+btnLineIndicator.width)){
-			btnDraggable.x=(btnLineIndicator.x+btnLineIndicator.width);
+		var min = btnLineIndicator.x;
+		var max = btnLineIndicator.x + btnLineIndicator.width;
+		var current = e.localX;
+		trace(this.btnDraggable.x,this.btnLineIndicator.x,this.btnLineIndicator.width);
+		trace(current/max);
+		var currentValueToDisplay = Math.round (current/max * 100);
+		trace('percent',currentValueToDisplay);
+		if(current<=min){
+			btnDraggable.x = min;
+			currentValueToDisplay = 0;
+		}else if(current>=max){
+			btnDraggable.x=max;
+			currentValueToDisplay = 100;
 		}
+		tValue.text = currentValueToDisplay+" %";
 	}//stage_onMouseMove
 }

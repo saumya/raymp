@@ -4,7 +4,7 @@
   "license": "MIT",
   "tags": ["cross", "OpenFL"],
   "description": "A hackable component libray for OpenFL",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "classPath": "src/",
   "releasenote": "Initial release, everything is working correctly.",
   "contributors": ["saumya"],

@@ -6,12 +6,17 @@ import openfl.display.Sprite;
 import openfl.display.Sprite;
 import openfl.display.Shape;
 import openfl.display.Graphics;
+
 import openfl.geom.Point;
 
 import openfl.text.TextField;
 import openfl.text.TextFormat;
 import openfl.text.TextFormatAlign;
 import openfl.text.TextFieldAutoSize;
+
+import openfl.events.Event;
+import openfl.events.TouchEvent;
+import openfl.events.MouseEvent;
 
 import openfl.Assets;
 import openfl.Lib;
@@ -23,11 +28,14 @@ class Slider extends Sprite {
 
 	private var btnDraggable:Sprite;
 	private var btnLineIndicator:Sprite;
+
+	private var isDragging:Bool;
 	
 
 	public function new(fontHeight:Int=14) {
 		super();
 		this.fontHt = fontHeight;
+		this.isDragging = false;
 
 		construct();
 	}//new
@@ -53,6 +61,10 @@ class Slider extends Sprite {
 
 		this.addChild(this.btnLineIndicator);
 		this.addChild(this.btnDraggable);
+		//
+		//this.btnDraggable.addEventListener(MouseEvent.CLICK,onClick);
+		this.btnDraggable.addEventListener(MouseEvent.MOUSE_DOWN,onBtnDraggable_MouseDown);
+		//this.btnDraggable.addEventListener(MouseEvent.MOUSE_UP,onMouseUp);
 
 
 		drawBackground();
@@ -81,7 +93,39 @@ class Slider extends Sprite {
 		this.btnLineIndicator.y = 14;
 		this.btnDraggable.y = 4;
 		this.tValue.y = 30;
-		
+
 		this.btnLineIndicator.x = btnDraggable.x = tValue.x = 10;
 	}//drawBackground
+
+	private function onClick(e:MouseEvent):Void{
+		trace('click');
+		if (isDragging) {
+			isDragging = false;
+			this.btnDraggable.stopDrag();
+		}else{
+			isDragging = true;
+			this.btnDraggable.startDrag();
+		}
+	}
+
+	private function onBtnDraggable_MouseDown(e:MouseEvent):Void{
+		trace("onBtnDraggable_MouseDown");
+		stage.addEventListener (MouseEvent.MOUSE_MOVE, stage_onMouseMove);
+		stage.addEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
+	}
+	private function stage_onMouseUp(e:MouseEvent):Void{
+		trace("stage_onMouseUp");
+		stage.removeEventListener (MouseEvent.MOUSE_MOVE, stage_onMouseMove);
+		stage.removeEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
+
+	}
+	private function stage_onMouseMove(e:MouseEvent):Void{
+		trace("stage_onMouseMove");
+		this.btnDraggable.x = e.localX;
+		if(btnDraggable.x<=btnLineIndicator.x){
+			btnDraggable.x = btnLineIndicator.x;
+		}else if(btnDraggable.x>=(btnLineIndicator.x+btnLineIndicator.width)){
+			btnDraggable.x=(btnLineIndicator.x+btnLineIndicator.width);
+		}
+	}//stage_onMouseMove
 }

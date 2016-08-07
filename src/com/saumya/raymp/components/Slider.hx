@@ -47,13 +47,15 @@ class Slider extends Sprite {
 		
 		// text
 		tValue = new TextField();
-		tValue.text = "Value";
-		tValue.autoSize = TextFieldAutoSize.LEFT;
+		tValue.text = "0 %";
+		//tValue.autoSize = TextFieldAutoSize.LEFT;
+		tValue.autoSize = TextFieldAutoSize.CENTER;
 		tValue.x = 0;
 		tValue.y = 0; // A little upward is actually makes it look in CENTER
 		tValue.defaultTextFormat = defaultFormat;
 		tValue.embedFonts = true;
 		tValue.selectable = false;
+		tValue.width = 220;
 		this.addChild(tValue);
 		//
 		this.btnDraggable = new Sprite();
@@ -74,7 +76,7 @@ class Slider extends Sprite {
 		var g:Graphics = this.graphics;
 		var c:UInt = 0xFFFFFF;
 		g.beginFill(c,1.0);
-		g.drawRect(0,0,300,50);
+		g.drawRect(0,0,220,40);
 		g.endFill();
 		// draw the buttons
 		// line
@@ -92,7 +94,7 @@ class Slider extends Sprite {
 		//
 		this.btnLineIndicator.y = 14;
 		this.btnDraggable.y = 4;
-		this.tValue.y = 30;
+		this.tValue.y = 20;
 
 		this.btnLineIndicator.x = btnDraggable.x = tValue.x = 10;
 	}//drawBackground
@@ -123,7 +125,7 @@ class Slider extends Sprite {
 		trace("stage_onMouseMove");
 		this.btnDraggable.x = e.localX;
 		var min = btnLineIndicator.x;
-		var max = btnLineIndicator.x + btnLineIndicator.width;
+		var max = btnLineIndicator.x + btnLineIndicator.width - btnDraggable.width;
 		var current = e.localX;
 		trace(this.btnDraggable.x,this.btnLineIndicator.x,this.btnLineIndicator.width);
 		trace(current/max);

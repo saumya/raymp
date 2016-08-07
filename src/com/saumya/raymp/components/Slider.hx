@@ -23,6 +23,9 @@ import openfl.Lib;
 
 class Slider extends Sprite {
 
+	public static var IS_BEING_DRAGGED:String = "isBeingDraggedEvent";
+	public static var VALUE_CHANGED:String = "valueChangedEvent";
+
 	private var fontHt:UInt;
 	private var tValue:TextField;
 
@@ -119,7 +122,10 @@ class Slider extends Sprite {
 		trace("stage_onMouseUp");
 		stage.removeEventListener (MouseEvent.MOUSE_MOVE, stage_onMouseMove);
 		stage.removeEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
-
+		
+		trace("stage_onMouseUp",tValue.text);
+		var evt:Event = new Event(Slider.VALUE_CHANGED,false,false);
+		dispatchEvent(evt);
 	}
 	private function stage_onMouseMove(e:MouseEvent):Void{
 		trace("stage_onMouseMove");
@@ -139,5 +145,9 @@ class Slider extends Sprite {
 			currentValueToDisplay = 100;
 		}
 		tValue.text = currentValueToDisplay+" %";
+		
+		trace("stage_onMouseMove",tValue.text);
+		var evt:Event = new Event(Slider.IS_BEING_DRAGGED,false,false);
+		dispatchEvent(evt);
 	}//stage_onMouseMove
 }

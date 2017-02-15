@@ -106,4 +106,12 @@ class TextInputWithRandomColor extends Sprite {
 
 		//this.textField.width = this.textField.length;
 	}//onAddedToStage
+
+	public function getText():String{
+		return (this.textField.text);
+	}
+	public function setText(textData:String):TextField{
+		this.textField.text = textData;
+		return this.textField;
+	}
 }
